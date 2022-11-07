@@ -10,31 +10,78 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Scaffold(
-        backgroundColor: Colors.black,
-        body: Column(
+    return Scaffold(
+      backgroundColor: backgroundColor,
+      body: ListView(children: [
+        Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Row(
-                //children: [Text("knkljfnkjbfkhbk")],
-                ),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(80),
-              child: Image.asset(
-                "assets/images/ammar.jpg",
-                fit: BoxFit.cover,
-                height: 120,
-                width: 120,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  BorderIcon(
+                    icon: Icon(
+                      Icons.arrow_back_ios_new,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  BorderIcon(
+                    icon: Icon(
+                      Icons.border_color,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
               ),
             ),
+            Stack(
+              children: [
+                CircleAvatar(
+                  backgroundColor: Color(0xFF141321),
+                  radius: 60,
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage("assets/images/ammar.jpg"),
+                    radius: 55,
+                  ),
+                ),
+                Positioned(
+                  top: 20,
+                  right: -2,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                        color: Color(0xFF141321),
+                        width: 2,
+                      ),
+                      color: Colors.green.shade900,
+                    ),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 3,
+                    ),
+                    child: Text(
+                      "Online",
+                      style: TextStyle(
+                        color: Colors.white54,
+                        fontSize: 9,
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(height: 15,),
             Padding(
               padding: const EdgeInsets.only(top: 4.0),
               child: Text(
                 "Ammar Hosni",
                 style: TextStyle(
-                    color: Colors.white.withOpacity(.8), fontSize: 20),
+                  color: Colors.white.withOpacity(.8),
+                  fontSize: 20,
+                ),
               ),
             ),
             Padding(
@@ -42,45 +89,53 @@ class ProfileView extends StatelessWidget {
               child: Text(
                 "0123456789",
                 style: TextStyle(
-                    color: Colors.white.withOpacity(.7), fontSize: 14),
+                  color: Colors.white.withOpacity(.7),
+                  fontSize: 14,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Text(
                 "ammar2013@gmail.com",
-                style:
-                    TextStyle(color: Colors.grey.withOpacity(.4), fontSize: 16),
+                style: TextStyle(
+                  color: Colors.grey.withOpacity(.4),
+                  fontSize: 16,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(40.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: const [
                   BorderIcon(
-                    faIcon: const FaIcon(
-                      FontAwesomeIcons.phone,
+                    icon: Icon(
+                      Icons.phone,
                       color: Colors.grey,
+                      size: 30,
                     ),
-                    color: primaryColor,
+                    color: Color(0xFF414AE8),
                   ),
-                  const BorderIcon(
-                    faIcon: FaIcon(
-                      FontAwesomeIcons.video,
+                  BorderIcon(
+                    icon: Icon(
+                      Icons.videocam,
                       color: Colors.grey,
-                    ),
-                  ),
-                  const BorderIcon(
-                    faIcon: FaIcon(
-                      FontAwesomeIcons.message,
-                      color: Colors.grey,
+                      size: 30,
                     ),
                   ),
-                  const BorderIcon(
-                    faIcon: FaIcon(
-                      FontAwesomeIcons.solidMessage,
+                  BorderIcon(
+                    icon: Icon(
+                      Icons.message_rounded,
                       color: Colors.grey,
+                      size: 30,
+                    ),
+                  ),
+                  BorderIcon(
+                    icon: Icon(
+                      Icons.mail_outline,
+                      color: Colors.grey,
+                      size: 30,
                     ),
                   ),
                 ],
@@ -93,41 +148,97 @@ class ProfileView extends StatelessWidget {
                 child: Text(
                   "Today",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.white70,
                     fontSize: 20,
                   ),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
-                  CardView(),
-                  CardView(),
+                  CardView(
+                    icon: Icon(
+                      Icons.phone_missed,
+                      color: Colors.red,
+                    ),
+                    text: "Missed Call",
+                    textcolor: Colors.red,
+                    number: 4,
+                    mint: "",
+                  ),
+                  CardView(
+                      icon: Icon(
+                        Icons.phone,
+                        color: Colors.grey,
+                      ),
+                      text: "Incoming Call",
+                      textcolor: Colors.white,
+                      number: 1,
+                      mint: "2 mint"),
                 ],
               ),
             ),
             const Padding(
-              padding: EdgeInsets.all( 20.0),
+              padding: EdgeInsets.symmetric(vertical: 10.0,horizontal: 20),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "Bio",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.white70,
                     fontSize: 20,
                   ),
                 ),
               ),
             ),
-Container(
-  decoration: BoxDecoration(color: cardColor,borderRadius: BorderRadius.circular(25)),
-),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Container(
+                height: 130,
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                  color: cardColor,
+                  borderRadius: BorderRadius.circular(18),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 20,),
+                    Text(
+                      "Arman Rokni is a Product designer at Piqo design agency ",
+                      style: TextStyle(
+                          color: Colors.grey.withOpacity(.5), fontSize: 18),
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          "Email:",
+                          style: TextStyle(
+                            color: Colors.grey.withOpacity(.5),
+                            fontSize: 18,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Piqo@info.com",
+                          style: TextStyle(
+                              color: Colors.white.withOpacity(.5),
+                              fontSize: 18),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
-      ),
+      ]),
     );
   }
 }

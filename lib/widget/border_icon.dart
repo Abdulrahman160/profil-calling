@@ -7,10 +7,10 @@ import '../counst.dart';
 class BorderIcon extends StatelessWidget {
   const BorderIcon({
     Key? key,
-    this.faIcon,
     this.color,
+    this.icon,
   }) : super(key: key);
-  final FaIcon? faIcon;
+  final Icon? icon;
   final Color? color;
 
   @override
@@ -26,6 +26,6 @@ class BorderIcon extends StatelessWidget {
               width: 2,
             ),
             borderRadius: BorderRadius.circular(50)),
-        child: faIcon);
+        child: icon);
   }
 }
