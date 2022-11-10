@@ -68,7 +68,7 @@ class CardView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 SizedBox(
-                  width: 78,
+                  width: 65,
                 ),
                 Text(
                   "$number ",

@@ -37,18 +37,21 @@ class ProfileView extends StatelessWidget {
               ),
             ),
             Stack(
-              children: [
-                CircleAvatar(
-                  backgroundColor: Color(0xFF141321),
-                  radius: 60,
+              children:[
+
+                Container(height: 130,width: 200,
                   child: CircleAvatar(
-                    backgroundImage: AssetImage("assets/images/ammar.jpg"),
-                    radius: 55,
+                    backgroundColor: Color(0xFF141321),
+                    radius: 60,
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage("assets/images/ammar.jpg"),
+                      radius: 55,
+                    ),
                   ),
                 ),
                 Positioned(
                   top: 20,
-                  right: -2,
+                  right: 15,
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
@@ -72,6 +75,7 @@ class ProfileView extends StatelessWidget {
                   ),
                 )
               ],
+
             ),
             SizedBox(height: 15,),
             Padding(
